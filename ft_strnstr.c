@@ -27,18 +27,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		j = 0;
 		while (little[j] != '\0' && (i + j) < len && big[i + j] == little[j])
-		{
-			// p r o g r a m a c i o  n
-			// 0 1 2 3 4 5 6 7 8 9 10 11
-			//       g r a m a 
-			//       0 1 2 3 4 
-			printf("incrementa J i es %zu y j es %zu\n", i,j);
 			j++;
-
-		}
 		if (little[j] == '\0')
 			return ((char *)&big[i]);
-		
 		i++;
 	}
 	return NULL;
