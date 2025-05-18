@@ -122,10 +122,17 @@ printf("Total length: %zu\n", copied);*/
 
 //char *ocu = ft_memchr("const", 'n', 3);
 
-int num = ft_memcmp ("efto", "eclo", 2);
-printf("in prueba ft_memcmp %d\n", num);
+//int num = ft_memcmp ("efto", "eclo", 2);
+//printf("in prueba ft_memcmp %d\n", num);
+
+	const char *largestring = "hola p";
+	const char *smallstring = "a s";
+	char *ptr;
+	
+
+	ptr = ft_strnstr(largestring, smallstring, 5);
 
 
-//printf("")
+printf("in prueba result %s\n", ptr);
 	return (0);
 }
