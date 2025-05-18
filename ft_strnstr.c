@@ -16,45 +16,34 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	printf("big   is  %s\n", big);
-	printf("little is %s\n", little);
-	printf("len   is  %zu   \n", len);
 	size_t	i;
 	size_t	j;
-	size_t	lenlit;
-	
-	i = 0;
-	lenlit = ft_strlen(little);
-	printf("len little %zu\n", lenlit);
-	//If little is an empty string, big is returned
+
 	if (*little == '\0')
 		return ((char *)big);
-	//if little occurs nowhere in big, NULL is returned
-	
-	while (big[i] != '\0')
+
+	i = 0;
+	while (big[i] != '\0' && i < len)
 	{
-		//printf("i %zu < len %zu  big[%zu] %c little[%zu] %c\n", i, len, i, big[i], i, little[i]);
 		j = 0;
-		while (j < lenlit || i < len)
-		{	if(little[j] == big[i])
-			{
-				printf("if loop i %zu / j %zu\n", i, j);
-				i++; // a0 = h0 X a0 = o1 X a0 = l2 X a0 = a3 V
-				j++; // 0 1 2
-			} 
-			else
-			{
-			printf("else loop i %zu / j %zu\n", i, j);
-				i++; // 0 1 2 3
-			}
+		while (little[j] != '\0' && (i + j) < len && big[i + j] == little[j])
+		{
+			// p r o g r a m a c i o  n
+			// 0 1 2 3 4 5 6 7 8 9 10 11
+			//       g r a m a 
+			//       0 1 2 3 4 
+			printf("incrementa J i es %zu y j es %zu\n", i,j);
+			j++;
+
 		}
-			size_t ind = i - j;
-			printf("fuera loop i %zu / j %zu ind %zu\n", i, j, ind);
-			printf("(char *)&big[j] %s\n", (char *)&big[j]);
-			return ((char *)&big[j]);
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
+		
+		i++;
 	}
 	return NULL;
 }
+	
 /*
 big    =  "hola"
 	   01234567
