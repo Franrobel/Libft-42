@@ -124,15 +124,15 @@ printf("Total length: %zu\n", copied);*/
 
 //int num = ft_memcmp ("efto", "eclo", 2);
 //printf("in prueba ft_memcmp %d\n", num);
-
+/*
 	const char *largestring = "programacion";
 	const char *smallstring = "grama";
 	char *ptr;
 	
 
 	ptr = ft_strnstr(largestring, smallstring, 8);
-
-
-printf("in prueba result %s\n", ptr);
+*/
+int ptr = ft_atoi("cal983smidad");
+printf("in prueba result %d\n", ptr);
 	return (0);
 }
