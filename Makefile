@@ -6,7 +6,7 @@
 #    By: francisr <francisr@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 18:10:28 by francisr          #+#    #+#              #
-#    Updated: 2025/05/12 18:16:44 by francisr         ###   ########.fr        #
+#    Updated: 2025/05/20 19:55:28 by francisr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRCS = \
 	ft_memmove.c \
 	ft_memchr.c \
 	ft_memcmp.c \
-	ft_calloc.c
+	ft_calloc.c \
+	ft_strdup.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -54,7 +55,7 @@ test: $(NAME)
 	gcc $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o pruebas
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
