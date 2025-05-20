@@ -1,45 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: francisr <francisr@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 10:40:48 by francisr          #+#    #+#             */
+/*   Updated: 2025/05/20 10:40:59 by francisr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "libft.h"
-int ft_atoi(const char *str)
-{
-    // recibo una cadena de caracteres ej "123" ó " 1F267"
-    // converti numeros a entero
-    //  si '-' antes de numeros devuelve el -
-    //  si '+' quita ese caracter
-    //  si "ahuishu" devuelve 0
-    //  ascii  45  48 57
-    //   int    -   0  9
-    //  output entero
-    // int atoi;
 
-    char nums[12];
-    int value;
-    int i;
-    int j;
-    size_t numslen;
-    size_t x;
-    i = 0;
-    j = 0;
-    x = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            nums[j] = str[i];
-            j++;
-            if (str[i + 1] < '0' || str[i + 1] > '9')
-            {
-                numslen = ft_strlen(nums);
-                value = 0;
-                while (x < numslen)
-                {
-                    value = value * 10 + (nums[x] - '0');
-                    x++;
-                }
-                return (value);
-            }
-        }
-        i++;
-    }
-    return (0);
+int	ft_atoi(const char *str)
+{
+	int	value;
+	int	i;
+	int	sign;
+
+	i = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (srtr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	if (str[i] < '0' || str[i] > '9')
+		return (0);
+	value = 0;
+	if (str[i] >= '0' && str[i] <= '9')
+	{
+		value = value * 10 + (str[i] - '0');
+		i++;
+	}
+	return (value * sign);
 }
