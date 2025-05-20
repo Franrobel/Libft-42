@@ -38,6 +38,7 @@ SRCS = \
 	ft_memmove.c \
 	ft_memchr.c \
 	ft_memcmp.c \
+	ft_calloc.c
 
 OBJS = $(SRCS:%.c=%.o)
 
