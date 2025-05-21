@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stddef.h>
-
+#include <stdlib.h>
 int	main(void)
 {
 	// FT_ISALPHA
@@ -132,7 +132,114 @@ printf("Total length: %zu\n", copied);*/
 
 	ptr = ft_strnstr(largestring, smallstring, 8);
 */
-int ptr = ft_atoi("cal983smidad");
-printf("in prueba result %d\n", ptr);
-	return (0);
+//int ptr = ft_atoi(" -123abc456");
+//printf("in prueba result %d\n", ptr);
+/*
+ printf("=== Test 1: calloc normal (2 ints) ===\n");
+    int cantelm = 76;
+    int *arr = (int *)calloc(cantelm, sizeof(int));
+    if (arr == NULL)
+        printf("Error: calloc returned NULL\n");
+    else {
+        for (int i = 0; i < cantelm; i++)
+            printf("arr[%d] = %d\n", i, arr[i]); // todos deberían ser 0
+        free(arr);
+    }
+    putchar('\n');
+ printf("=== Test 1: ft_calloc normal (2 ints) ===\n");
+  putchar('\n');
+    int *arr1 = (int *)ft_calloc(cantelm, sizeof(int));
+    if (arr1 == NULL)
+        printf("Error: ft_calloc returned NULL\n");
+    else {
+        for (int i = 0; i < cantelm; i++)
+            printf("ft_ arr1[%d] = %d\n", i, arr1[i]); // todos deberían ser 0
+        free(arr1);
+    }
+*/
+/*
+printf("\n\n=========== FT_STRDUP ===========\n\n");
+	const char *original = "Holas";
+	char *copia = ft_strdup(original);
+
+    	if (!copia)
+    		printf("❌ Test 1: malloc falló\n");
+
+  
+    	if (strcmp(original, copia) == 0 && original != copia)
+        	printf("✅ Test 1: Cadena copiada correctamente\n");
+    	else
+    		printf("❌ Test 1: Fallo en la copia\n");
+    	printf("original : %s\ncopia : %s\n", original, copia);
+    	free(copia);
+
+	const char *original1 = "";
+	char *copia1 = ft_strdup(original1);
+	if (!copia1)
+		printf("❌ Test 2: malloc falló\n");
+	if (strcmp(original1, copia1) == 0 && original1 != copia1)
+        	printf("✅ Test 2: Copia de cadena vacía correcta\n");
+        else
+        	printf("❌ Test 2: Fallo en la copia vacía\n");
+        printf("original1 : %s\ncopia1 : %s\n", original1, copia1);
+        free(copia1);
+
+	const char *original2 = "Línea 1\tLínea 2 ☃️";
+	char *copia2 = ft_strdup(original2);
+
+	if (!copia2)
+	    	printf("❌ Test 3: malloc falló\n");
+   
+	if (strcmp(original2, copia2) == 0 && original2 != copia2)
+	        printf("✅ Test 3: Copia con caracteres especiales correcta\n");
+	else
+	        printf("❌ Test 3: Fallo en copia con caracteres especiales\n");
+	printf("original2 : %s\ncopia2 : %s\n", original2, copia2);        
+    	free(copia2);
+  */  	
+ printf("\n\n=========== FT_SUBSTR ===========\n\n");
+ 
+ /*const char *str = "189543";
+ unsigned int start = 2;
+ size_t len = 5;
+ char	*result = ft_substr(str, start, len);
+ 
+	printf("s -> \"%s\"\n", str);
+	printf("start -> %u\n", start);
+	printf("len -> %zu\n", len);
+	printf("ft_substr str_original is \"%s\"\n", str);
+	printf("ft_substr       result is \"%s\"\n", result);*/
+	char *res;
+
+	// Caso normal
+	res = ft_substr("ABCDEF", 2, 3);
+	printf("Test 1: \"%s\" (esperado: \"CDE\")\n", res);
+	free(res);
+
+	// start = longitud cadena, devuelve ""
+	res = ft_substr("ABCDEF", 6, 3);
+	printf("Test 2: \"%s\" (esperado: \"\")\n", res);
+	free(res);
+
+	// start > longitud cadena, devuelve ""
+	res = ft_substr("ABCDEF", 10, 3);
+	printf("Test 3: \"%s\" (esperado: \"\")\n", res);
+	free(res);
+
+	// len mayor que resto cadena
+	res = ft_substr("ABCDEF", 4, 10);
+	printf("Test 4: \"%s\" (esperado: \"EF\")\n", res);
+	free(res);
+
+	// len = 0, devuelve ""
+	res = ft_substr("ABCDEF", 2, 0);
+	printf("Test 5: \"%s\" (esperado: \"\")\n", res);
+	free(res);
+
+	// s == NULL, devuelve NULL (no imprimir para no crash)
+	res = ft_substr(NULL, 2, 3);
+	printf("Test 6: %s (esperado: NULL)\n", (res == NULL) ? "NULL" : "NOT NULL");
+	// no hay free porque es NULL
+
+    return (0);
 }

@@ -6,10 +6,9 @@
 #    By: francisr <francisr@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 18:10:28 by francisr          #+#    #+#              #
-#    Updated: 2025/05/20 19:55:28 by francisr         ###   ########.fr        #
+#    Updated: 2025/05/21 16:06:00 by francisr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = libft.a
 
@@ -39,8 +38,9 @@ SRCS = \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_calloc.c \
-	ft_strdup.c
-
+	ft_strdup.c \
+	ft_substr.c 
+	
 OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
