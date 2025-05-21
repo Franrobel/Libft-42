@@ -10,17 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strdup(const char *s)
+#include <stddef.h>
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+char	*ft_strdup(const char *s)
 {
-/*
- The  strdup() function returns a pointer to a new string which is a duplicate of the string s.
-       Memory for the new string is obtained with malloc(3), and can be freed with free(3).
- On success, the strdup() function returns a pointer to the duplicated string.  It returns NULL
-       if insufficient memory was available, with errno set to indicate the cause of the error.
+	char	*cpy;
+	size_t	slen;
+	size_t	i;
 
-ERRORS
-       ENOMEM Insufficient memory available to allocate duplicate string.
-
- */
-
+	slen = ft_strlen(s) + 1;
+	cpy = malloc(slen);
+	if (!cpy)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		cpy[i] = s[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }
