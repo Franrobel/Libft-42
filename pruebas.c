@@ -210,7 +210,7 @@ printf("\n\n=========== FT_STRDUP ===========\n\n");
 	printf("ft_substr str_original is \"%s\"\n", str);
 	printf("ft_substr       result is \"%s\"\n", result);*/
 	char *res;
-
+/*
 	// Caso normal
 	res = ft_substr("ABCDEF", 2, 3);
 	printf("Test 1: \"%s\" (esperado: \"CDE\")\n", res);
@@ -240,6 +240,17 @@ printf("\n\n=========== FT_STRDUP ===========\n\n");
 	res = ft_substr(NULL, 2, 3);
 	printf("Test 6: %s (esperado: NULL)\n", (res == NULL) ? "NULL" : "NOT NULL");
 	// no hay free porque es NULL
+*/
+printf("\n\n=========== FT_STRJOIN ===========\n\n");
 
+	res = ft_strjoin("ABCDEF", "ABCDEF");
+	printf("Test 1: \"%s\"\n", res);
+	free(res);
+
+	// start = longitud cadena, devuelve ""
+	res = ft_strjoin("pino ", "ssaok");
+	printf("Test 2: \"%s\"\n", res);
+
+	free(res);
     return (0);
 }

@@ -6,7 +6,7 @@
 #    By: francisr <francisr@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 18:10:28 by francisr          #+#    #+#              #
-#    Updated: 2025/05/21 16:06:00 by francisr         ###   ########.fr        #
+#    Updated: 2025/05/21 19:13:23 by francisr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRCS = \
 	ft_memcmp.c \
 	ft_calloc.c \
 	ft_strdup.c \
-	ft_substr.c 
+	ft_substr.c \
+	ft_strjoin.c	
 	
 OBJS = $(SRCS:%.c=%.o)
 
