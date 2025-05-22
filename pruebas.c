@@ -196,21 +196,12 @@ printf("\n\n=========== FT_STRDUP ===========\n\n");
 	        printf("❌ Test 3: Fallo en copia con caracteres especiales\n");
 	printf("original2 : %s\ncopia2 : %s\n", original2, copia2);        
     	free(copia2);
-  */  	
- printf("\n\n=========== FT_SUBSTR ===========\n\n");
+  */
+ /*
+ printf("\n=========== FT_SUBSTR ===========\n\n");
  
- /*const char *str = "189543";
- unsigned int start = 2;
- size_t len = 5;
- char	*result = ft_substr(str, start, len);
- 
-	printf("s -> \"%s\"\n", str);
-	printf("start -> %u\n", start);
-	printf("len -> %zu\n", len);
-	printf("ft_substr str_original is \"%s\"\n", str);
-	printf("ft_substr       result is \"%s\"\n", result);*/
 	char *res;
-/*
+
 	// Caso normal
 	res = ft_substr("ABCDEF", 2, 3);
 	printf("Test 1: \"%s\" (esperado: \"CDE\")\n", res);
@@ -240,8 +231,8 @@ printf("\n\n=========== FT_STRDUP ===========\n\n");
 	res = ft_substr(NULL, 2, 3);
 	printf("Test 6: %s (esperado: NULL)\n", (res == NULL) ? "NULL" : "NOT NULL");
 	// no hay free porque es NULL
-*/
-printf("\n\n=========== FT_STRJOIN ===========\n\n");
+
+printf("\n=========== FT_STRJOIN ===========\n\n");
 
 	res = ft_strjoin("ABCDEF", "ABCDEF");
 	printf("Test 1: \"%s\"\n", res);
@@ -250,7 +241,24 @@ printf("\n\n=========== FT_STRJOIN ===========\n\n");
 	// start = longitud cadena, devuelve ""
 	res = ft_strjoin("pino ", "ssaok");
 	printf("Test 2: \"%s\"\n", res);
-
 	free(res);
+	
+	res = ft_strjoin("", "ABCDEF");
+	printf("Test 3: \"%s\"\n", res);
+	free(res);
+	res = ft_strjoin("", "");
+	printf("Test 4: \"%s\"\n", res);
+	free(res);
+*/	
+printf("\n=========== FT_STRTRIM ===========\n\n");
+	char *strtrim;
+	strtrim = ft_strtrim("<lima<>limon:{po>", "<:{po>");
+	printf("Test 1: \"%s\"\n", strtrim);
+
+		
+	free(strtrim);
+
+printf("\n=========== FT_prop ===========\n\n");	
+	
     return (0);
 }
