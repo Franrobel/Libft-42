@@ -7,7 +7,7 @@
 
 int	main(void)
 {
-	/*
+	
 		printf("\n=========== FT_ISALPHA ===========\n\n");
 	
 		printf("Test 1: %c -> %s (esperado: true)\n", 'A', ft_isalpha('A') ? "true" : "false");
@@ -15,7 +15,7 @@ int	main(void)
 		printf("Test 3: '%c' -> %s (esperado: false)\n", '5', ft_isalpha('5') ? "true" : "false");
 		printf("Test 4: '%c' -> %s (esperado: false)\n", '$', ft_isalpha('$') ? "true" : "false");
 		printf("Test 5: '%c' -> %s (esperado: false)\n", '\n', ft_isalpha('\n') ? "true" : "false");
-	
+	/*
 		printf("\n=========== FT_ISDIGIT ===========\n\n");
 	
 		printf("Test 1: '%c' -> %s (esperado: true)\n", '0', ft_isdigit('0') ? "true" : "false");
@@ -172,14 +172,14 @@ int	main(void)
 			ft_memmove(str2 + 2, str2, 4);   // overlap
 			printf("memmove   : %s\n", str1);
 			printf("ft_memmove: %s\n", str2);
-		
+		*/
 			printf("\n=========== FT_MEMCHR ===========\n\n");
 			const char *mench = "Hola mundo!";
 			void *r1mech = memchr(mench, 'm', 10);
 			void *r2mech = ft_memchr(mench, 'm', 10);
 			printf("memchr    : %s\n", r1mech ? (char *)r1mech : "(null)");
 			printf("ft_memchr : %s\n", r2mech ? (char *)r2mech : "(null)");
-		
+		/*
 			printf("\n=========== FT_MEMCMP ===========\n\n");
 			char a1[] = "abcde";
 			char a2[] = "abcdf";
@@ -215,7 +215,7 @@ int	main(void)
 		
 			free(arr1);
 			free(arr2);
-		
+		*/
 			printf("\n=========== FT_STRDUP ============\n\n");
 		
 			const char *orig = "Hola libft!";
@@ -227,7 +227,7 @@ int	main(void)
 		
 			free(dup1);
 			free(dup2);
-		
+	
  printf("\n=========== FT_SUBSTR ===========\n\n");
  
 	char *res;
@@ -261,7 +261,7 @@ int	main(void)
 	res = ft_substr(NULL, 2, 3);
 	printf("Test 6: %s (esperado: NULL)\n", (res == NULL) ? "NULL" : "NOT NULL");
 	// no hay free porque es NULL
-
+/*
 printf("\n=========== FT_STRJOIN ===========\n\n");
 
 	res = ft_strjoin("ABCDEF", "ABCDEF");
@@ -290,17 +290,17 @@ printf("\n=========== FT_STRTRIM ===========\n\n");
 */
 printf("\n=========== FT_SPLIT ===========\n\n");	
 
-char **elsplit = ft_split("pipo-anvil-Juan-Escher", '-');
 
-
+char **split = ft_split("--pipos--anv-Juan-Es-cher?", '-');
 int i = 0;
-while (elsplit[i] != NULL)
+while (split[i])
 {
-	printf("Test 1 ft_split string %d es \"%s\"\n", i, elsplit[i]);
+	printf("Palabra ft_split %d: %s\n", i, split[i]);
+	free(split[i]);
 	i++;
 }
+free(split);
 
-free(elsplit);
 	
     return (0);
 }

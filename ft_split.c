@@ -1,35 +1,65 @@
-#include <stdio.h>
- #include <stdlib.h>
+#include <stdlib.h>
+#include "libft.h"
+
+
+static  size_t  countstrings(const char *s, char c)
+{
+    size_t  i;
+    size_t  cins;
+    size_t  strings;
+
+    cins = 0;
+    strings = 0;
+    i = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] != c && cins == 0)
+        {
+            strings++;
+            cins = 1;
+        }
+        else if (s[i] == c)
+            cins = 0;
+        i++;
+    }
+    return (strings);
+}
+
+static  char    **inarray(char **array,const char *s,char c)
+{
+    size_t  i;
+    size_t  start;
+    size_t  idx;
+
+    i = 0;
+    idx = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] != c)
+        {
+            start = i;
+            while (s[i] != c && s[i])
+                i++;
+            array[idx++] = ft_substr(s, start, i - start);
+        }
+        else
+            i++;
+    }
+    array[idx] = NULL;
+    return (array);
+}
+
 char **ft_split(char const *s, char c)
 {
+    char **array;
+    size_t strings;
+    size_t idx;
+   
+    idx = 0;
 
-    printf("in function \"%s\"\nand char '%c'\n", s, c);
-    char **array = malloc(5 * sizeof(char *));
+    strings = countstrings(s, c);
+    array = malloc((strings + 1) * sizeof(char *));
     if (!array)
-        return (NULL);
-        array[0] = "pipo";
-        array[1] = "anvil";
-        array[2] = "Juan";
-        array[3] = "Escher";
-        array[4] = NULL;
-    return (array);
-    /*
-Parámetros
-s: La string a separar.        "pipo-anvil-Juan-Escher", '-'
-c: El carácter delimitador. ["pipo", "anvil", "Juan", "Escher", NULL]
-
-Valor devuelto
-El array de nuevas strings resultante de la separación.
-NULL si falla la reserva de memoria.
-
-Funciones autorizadas
-malloc, free
-
-Descripción Reserva (utilizando malloc(3)) un array de strings
-resultante de separar la string ’s’ en substrings
-utilizando el caracter ’c’ como delimitador. El
-array debe terminar con un puntero NULL.
-
-
-*/
+        return (NULL);   
+    return (inarray(array, s, c));
 }
