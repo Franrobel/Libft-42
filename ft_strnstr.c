@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
@@ -34,21 +33,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return NULL;
 }
-	
-/*
-big    =  "hola"
-	   01234567
-little =  "a p" lenght 3 
-	   012
-   len =   5
-
-lenlittle = 3 al ser < que len puedo buscar 
-si lenlittle > len hay partes de little != big
- 
-la diff entre lenlit 4 y len 6 es 2 
-tengo que busca solo 2 lugares
-osea donde esta  "a p" en "hola pol"
-
-devolver puntero a big donde comienza la coincidencia
-
-*/
