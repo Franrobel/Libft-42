@@ -7,7 +7,7 @@
 
 int	main(void)
 {
-	
+	/*
 		printf("\n=========== FT_ISALPHA ===========\n\n");
 	
 		printf("Test 1: %c -> %s (esperado: true)\n", 'A', ft_isalpha('A') ? "true" : "false");
@@ -15,7 +15,7 @@ int	main(void)
 		printf("Test 3: '%c' -> %s (esperado: false)\n", '5', ft_isalpha('5') ? "true" : "false");
 		printf("Test 4: '%c' -> %s (esperado: false)\n", '$', ft_isalpha('$') ? "true" : "false");
 		printf("Test 5: '%c' -> %s (esperado: false)\n", '\n', ft_isalpha('\n') ? "true" : "false");
-	/*
+	
 		printf("\n=========== FT_ISDIGIT ===========\n\n");
 	
 		printf("Test 1: '%c' -> %s (esperado: true)\n", '0', ft_isdigit('0') ? "true" : "false");
@@ -172,14 +172,14 @@ int	main(void)
 			ft_memmove(str2 + 2, str2, 4);   // overlap
 			printf("memmove   : %s\n", str1);
 			printf("ft_memmove: %s\n", str2);
-		*/
+	
 			printf("\n=========== FT_MEMCHR ===========\n\n");
 			const char *mench = "Hola mundo!";
 			void *r1mech = memchr(mench, 'm', 10);
 			void *r2mech = ft_memchr(mench, 'm', 10);
 			printf("memchr    : %s\n", r1mech ? (char *)r1mech : "(null)");
 			printf("ft_memchr : %s\n", r2mech ? (char *)r2mech : "(null)");
-		/*
+	
 			printf("\n=========== FT_MEMCMP ===========\n\n");
 			char a1[] = "abcde";
 			char a2[] = "abcdf";
@@ -215,7 +215,7 @@ int	main(void)
 		
 			free(arr1);
 			free(arr2);
-		*/
+
 			printf("\n=========== FT_STRDUP ============\n\n");
 		
 			const char *orig = "Hola libft!";
@@ -261,7 +261,7 @@ int	main(void)
 	res = ft_substr(NULL, 2, 3);
 	printf("Test 6: %s (esperado: NULL)\n", (res == NULL) ? "NULL" : "NOT NULL");
 	// no hay free porque es NULL
-/*
+
 printf("\n=========== FT_STRJOIN ===========\n\n");
 
 	res = ft_strjoin("ABCDEF", "ABCDEF");
@@ -287,7 +287,7 @@ printf("\n=========== FT_STRTRIM ===========\n\n");
 
 		
 	free(strtrim);
-*/
+
 printf("\n=========== FT_SPLIT ===========\n\n");	
 
 
@@ -300,6 +300,24 @@ while (split[i])
 	i++;
 }
 free(split);
+*/
+printf("\n=========== FT_ITOA ============\n\n");
+
+	int tests[] = 
+	{ 0, 1, -1, 42, -42, 123456, -123456, 2147483647 , -2147483648,
+	 1000000000, -1000000000, 999, -999, 7, 7, 987654321, -987654321,
+	};
+	
+	int i = 0;
+	while (i < (int)(sizeof(tests) / sizeof(tests[0])))
+	{
+		char *result = ft_itoa(tests[i]);
+		printf("Entrada   : %d\n", tests[i]);
+		printf("ft_itoa   : \"%s\"\n\n", result);
+		free(result);
+		i++;
+	}
+
 
 	
     return (0);
