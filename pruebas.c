@@ -5,6 +5,21 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+void	functionstriter(unsigned int i, char *str)
+{
+	if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u' )
+			*str = (i % 5) + 60;
+}
+
+
+char	functionstrmap(unsigned int i, char str)
+{
+	if (str == 'a' || str == 'e' || str == 'i' || str == 'o' || str == 'u' )
+		str = i % 5 + 60;	
+	return str;
+}
+
+
 int	main(void)
 {
 	/*
@@ -300,7 +315,7 @@ while (split[i])
 	i++;
 }
 free(split);
-*/
+
 printf("\n=========== FT_ITOA ============\n\n");
 
 	int tests[] = 
@@ -319,6 +334,18 @@ printf("\n=========== FT_ITOA ============\n\n");
 	}
 
 
-	
+printf("\n=========== FT_STRMAPI ============\n\n");
+
+const char *str = "Culero y estamos vivos de 9 vidas";
+char *strmapitest = ft_strmapi(str, functionstrmap);
+	printf("test \"%s\"\n", strmapitest );
+free(strmapitest);
+*/
+printf("\n=========== FT_STRITER ============\n\n");
+
+char striter[] = "Culero y fin";
+ft_striteri(striter, functionstriter);
+	printf("test \"%s\"\n", striter );
+
     return (0);
 }

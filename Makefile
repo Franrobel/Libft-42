@@ -6,7 +6,7 @@
 #    By: francisr <francisr@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 18:10:28 by francisr          #+#    #+#              #
-#    Updated: 2025/05/26 12:39:20 by francisr         ###   ########.fr        #
+#    Updated: 2025/05/26 20:00:16 by francisr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ SRCS = \
 	ft_strjoin.c \
 	ft_strtrim.c \
 	ft_split.c \
-	ft_itoa.c
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c
 	
 OBJS = $(SRCS:%.c=%.o)
 
