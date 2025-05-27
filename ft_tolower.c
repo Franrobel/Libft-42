@@ -10,17 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_tolower(int c)
 {
-	unsigned char	ch;
-
-	if (c == EOF)
-		return (EOF);
-	ch = (unsigned char)c;
-	if (ch >= 'A' && ch <= 'Z')
-		return (ch + 32);
-	else
-		return (ch);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

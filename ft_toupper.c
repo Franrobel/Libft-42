@@ -10,17 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_toupper(int c)
 {
-	unsigned char	ch;
-
-	if (c == EOF)
-		return (EOF);
-	ch = (unsigned char)c;
-	if (ch >= 'a' && ch <= 'z')
-		return (ch - 32);
-	else
-		return (ch);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
