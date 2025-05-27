@@ -6,7 +6,7 @@
 #    By: francisr <francisr@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 18:10:28 by francisr          #+#    #+#              #
-#    Updated: 2025/05/26 20:00:16 by francisr         ###   ########.fr        #
+#    Updated: 2025/05/27 13:44:55 by francisr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,13 @@ SRCS = \
 	ft_split.c \
 	ft_itoa.c \
 	ft_strmapi.c \
-	ft_striteri.c
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c
 	
 OBJS = $(SRCS:%.c=%.o)
+
+INCLUDES = libft.h
 
 all: $(NAME)
 
@@ -57,7 +61,7 @@ $(NAME): $(OBJS)
 test: $(NAME)
 	gcc -Wall -Wextra -Werror pruebas.c -L. -lft -o pruebas
 
-%.o: %.c
+%.o: %.c $(INCLUDES)
 	gcc $(CFLAGS) -c $< -o $@
 
 clean:

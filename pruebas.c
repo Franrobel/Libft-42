@@ -1,9 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stddef.h>
-#include <stdlib.h>
 
 void	functionstriter(unsigned int i, char *str)
 {
@@ -340,12 +335,19 @@ const char *str = "Culero y estamos vivos de 9 vidas";
 char *strmapitest = ft_strmapi(str, functionstrmap);
 	printf("test \"%s\"\n", strmapitest );
 free(strmapitest);
-*/
+
 printf("\n=========== FT_STRITER ============\n\n");
 
 char striter[] = "Culero y fin";
 ft_striteri(striter, functionstriter);
 	printf("test \"%s\"\n", striter );
+*/	
+printf("\n=========== FT_PUTCHAR_FD ============\n\n");
+
+ft_putstr_fd("perros en el aljibe", 1);
+
+
+
 
     return (0);
 }
