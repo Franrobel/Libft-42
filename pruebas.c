@@ -344,13 +344,17 @@ printf("\n=========== FT_STRITER ============\n\n");
 char striter[] = "Culero y fin";
 ft_striteri(striter, functionstriter);
 	printf("test \"%s\"\n", striter );
-	
-printf("\n=========== FT_PUTCHAR_FD ============\n\n");
+*/	
+printf("\n=========== FT_PUTSTR_FD ============\n\n");
 
-ft_putstr_fd("perros en el aljibe", 1);
-*/
-printf("\n=========== FT_PUTENDL_FD ============\n\n");
+ft_putstr_fd("caminos vastos", 0);
 
+printf("\n=========== FT_PUTENDL_FD ============\n");
 
+ft_putendl_fd("caminos vastos", 0);
+
+printf("\n=========== FT_PUTNBR_FD ============\n");
+
+ft_putnbr_fd(1235, 1);
     return (0);
 }
