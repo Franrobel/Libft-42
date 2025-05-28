@@ -11,6 +11,9 @@
 # **************************************************************************** #
 
 NAME = libft.a
+BONUSNAME = libft_bonus.a
+
+BONUS_DIR = bonus
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -34,7 +37,6 @@ SRCS = \
 	ft_strlcpy.c \
 	ft_strlcat.c \
 	ft_strnstr.c \
-	ft_memmove.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_calloc.c \
@@ -50,10 +52,14 @@ SRCS = \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
-	
+
+BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew ft_lstadd_back ft_lstadd_front ))
+
 OBJS = $(SRCS:%.c=%.o)
+BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 
 INCLUDES = libft.h
+BONUS_INC = bonus/libft_bonus.h
 
 all: $(NAME)
 
@@ -61,15 +67,32 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c $(INCLUDES)
-	gcc $(CFLAGS) -c $< -o $@
+	cc $(CFLAGS) -c $< -o $@
+
+bonus: $(BONUSNAME)
+
+$(BONUSNAME) : | $(BONUS_DIR) $(BONUS_OBJ)
+	ar rcs $(BONUSNAME) $(BONUS_OBJ)
+
+$(BONUS_DIR):
+	mkdir -p $(BONUS_DIR)
+bonus/%.o: bonus/%.c $(BONUS_INC)
+	cc $(CFLAGS) -c $< -o $@
+
 test: $(NAME)
-	gcc -Wall -Wextra -Werror pruebas.c -L. -lft -o pruebas
+	cc $(CFLAGS) pruebas.c -L. -lft -o pruebas
+
+testbo: $(BONUSNAME)
+	cc $(CFLAGS) pruebasbo.c -L. -lft_bonus -o pruebasbo
+
 clean:
-	rm -f *.o
+	rm -f *.o bonus/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUSNAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+re_bonus: fclean bonus
+
+.PHONY: all bonus clean fclean re re_bonus
