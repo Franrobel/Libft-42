@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 
+//test: $(NAME)
+//	gcc -Wall -Wextra -Werror pruebas.c -L. -lft -o pruebas
+
 void	functionstriter(unsigned int i, char *str)
 {
 	if (*str == 'a' || *str == 'e' || *str == 'i' || *str == 'o' || *str == 'u' )
@@ -34,7 +37,7 @@ printf("Test 1: '%c' -> %s (esperado: true)\n", '0', ft_isdigit('0') ? "true" : 
 printf("Test 2: '%c' -> %s (esperado: true)\n", '9', ft_isdigit('9') ? "true" : "false");
 printf("Test 3: '%c' -> %s (esperado: false)\n", 'A', ft_isdigit('A') ? "true" : "false");
 printf("Test 4: '%c' -> %s (esperado: false)\n", ' ', ft_isdigit(' ') ? "true" : "false");
-
+printf("Test 5: '%c' -> %s (esperado: false)\n", '\0', ft_isdigit('\0') ? "true" : "false");
 printf("\n=========== FT_ISALNUM ===========\n\n");
 
 printf("Test 1: '%c' -> %s (esperado: true)\n", 'b', ft_isalnum('b') ? "true" : "false");
@@ -79,11 +82,12 @@ printf("Test 2: \"%s\" -> %zu (ft), %zu (libc)\n", "", ft_strlen(""), strlen("")
 printf("Test 3: \"%s\" -> %zu (ft), %zu (libc)\n", "123456789", ft_strlen("123456789"), strlen("123456789"));
 
 
+
 printf("\n=========== FT_STRCHR ===========\n\n");
 
-const char *strch = "abcdef";
-printf("Test 1: strchr('%s', '%c') -> \"%s\" (ft), \"%s\" (libc)\n", strch, 'c',
-       ft_strchr(strch, 'c'), strchr(strch, 'c'));
+const char *strch = "AA\0B";
+printf("Test 1: strchr('%s', '%c') -> \"%s\" (ft), \"%s\" (libc)\n", strch, 'B',
+       ft_strchr(strch, 'B'), strchr(strch, 'B'));
 
 printf("Test 2: strchr('%s', '%c') -> \"%s\" (ft), \"%s\" (libc)\n", strch, 'x',
        ft_strchr(strch, 'x'), strchr(strch, 'x'));
@@ -170,11 +174,11 @@ printf("bzero    : %.*s\n", 10, buffer1);
 printf("ft_bzero : %.*s\n", 10, buffer2);
 		
 printf("\n=========== FT_MEMCPY ===========\n\n");
-char src1[] = "1234567890";
-char dst1[15];
-char dst2[15];
-memcpy(dst1, src1, 11);
-ft_memcpy(dst2, src1, 11);
+char src1[] = "";
+char dst1[] = "";
+char dst2[] = "";
+memcpy(NULL, NULL, 3);
+ft_memcpy(dst2, src1, 3);
 printf("memcpy   : %s\n", dst1);
 printf("ft_memcpy: %s\n", dst2);
 
@@ -185,6 +189,7 @@ memmove(str1 + 2, str1, 4);      // overlap
 ft_memmove(str2 + 2, str2, 4);   // overlap
 printf("memmove   : %s\n", str1);
 printf("ft_memmove: %s\n", str2);
+
 
 printf("\n=========== FT_MEMCHR ===========\n\n");
 const char *mench = "Hola mundo!";
@@ -292,15 +297,17 @@ printf("\n=========== FT_STRJOIN ===========\n\n");
 	res = ft_strjoin("", "");
 	printf("Test 4: \"%s\"\n", res);
 	free(res);
+*/
 
 printf("\n=========== FT_STRTRIM ===========\n\n");
-	char *strtrim;
-	strtrim = ft_strtrim("<lima<>limon:{po>", "<:{po>");
-	printf("Test 1: \"%s\"\n", strtrim);
-
+	
+	char *cacho;
+	cacho = ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t");
+	printf("Test 1: \"%s\"\n", cacho);
+	
 		
-	free(strtrim);
-
+	free(cacho);
+/*
 printf("\n=========== FT_SPLIT ===========\n\n");	
 
 
@@ -344,7 +351,7 @@ printf("\n=========== FT_STRITER ============\n\n");
 char striter[] = "Culero y fin";
 ft_striteri(striter, functionstriter);
 	printf("test \"%s\"\n", striter );
-*/	
+	
 printf("\n=========== FT_PUTSTR_FD ============\n\n");
 
 ft_putstr_fd("caminos vastos", 0);
@@ -356,5 +363,6 @@ ft_putendl_fd("caminos vastos", 0);
 printf("\n=========== FT_PUTNBR_FD ============\n");
 
 ft_putnbr_fd(1235, 1);
+*/
     return (0);
 }

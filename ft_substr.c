@@ -12,10 +12,23 @@
 
 #include "libft.h"
 
+static char	*makecpystr(char *subs, const char *oris, unsigned int st, size_t l)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < l)
+	{
+		subs[i] = oris[st + i];
+		i++;
+	}
+	subs[i] = '\0';
+	return (subs);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*cpys;
-	size_t	i;
 
 	if (!s)
 		return (NULL);
@@ -27,16 +40,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		cpys[0] = '\0';
 		return (cpys);
 	}
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	cpys = malloc((len + 1) * sizeof(char));
 	if (!cpys)
 		return (NULL);
-	i = 0;
-	while (i < len && s[start] != '\0')
-	{
-		cpys[i] = s[start];
-		start++;
-		i++;
-	}
-	cpys[i] = '\0';
-	return (cpys);
+	return (makecpystr(cpys, s, start, len));
 }

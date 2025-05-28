@@ -60,12 +60,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-test: $(NAME)
-	gcc -Wall -Wextra -Werror pruebas.c -L. -lft -o pruebas
-
 %.o: %.c $(INCLUDES)
 	gcc $(CFLAGS) -c $< -o $@
-
+test: $(NAME)
+	gcc -Wall -Wextra -Werror pruebas.c -L. -lft -o pruebas
 clean:
 	rm -f *.o
 
