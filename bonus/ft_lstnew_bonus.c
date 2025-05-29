@@ -1,28 +1,15 @@
 
-#include "libft_bonus.h"
 #include "../libft.h"
 #include <stdio.h>
 
-t_list  *ft_lstnew(void *content)
+t_list  *ft_lstnew_bonus(void *content)
 {
-    char    *j;
-    
-    j = (char *)content;
-    printf("content \"%s\"\n", j);
-    return (content);
-}
+    t_list *newel;
 
-int main(void)
-{
-    ft_lstnew("HOLA");
+    newel = (t_list *)malloc(sizeof(t_list));
+    if (!newel)
+        return (NULL);
+    newel->content = content;
+    newel->next = NULL;
+    return (newel);
 }
-/*
-Parámetros content: el contenido con el que crear el nodo.
-Valor devuelto El nuevo nodo
-Funciones autorizadas
-malloc
-Descripción Crea un nuevo nodo utilizando malloc(3). La
-variable miembro ’content’ se inicializa con el
-contenido del parámetro ’content’. La variable
-’next’, con NULL.
-*/

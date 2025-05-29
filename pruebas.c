@@ -297,7 +297,7 @@ printf("\n=========== FT_STRJOIN ===========\n\n");
 	res = ft_strjoin("", "");
 	printf("Test 4: \"%s\"\n", res);
 	free(res);
-*/
+
 
 printf("\n=========== FT_STRTRIM ===========\n\n");
 	
@@ -307,7 +307,7 @@ printf("\n=========== FT_STRTRIM ===========\n\n");
 	
 		
 	free(cacho);
-/*
+
 printf("\n=========== FT_SPLIT ===========\n\n");	
 
 
@@ -364,5 +364,8 @@ printf("\n=========== FT_PUTNBR_FD ============\n");
 
 ft_putnbr_fd(1235, 1);
 */
+t_list *nombre = ft_lstnew_bonus("pepe");
+
+printf("content en newel es %s\n", (char *)nombre->content);
     return (0);
 }
