@@ -53,13 +53,13 @@ SRCS = \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew ft_lstadd_back ft_lstadd_front ))
+BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew))
 
 OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 
 INCLUDES = libft.h
-BONUS_INC = bonus/libft_bonus.h
+BONUS_INC = $(BONUS_DIR)/libft_bonus.h
 
 all: $(NAME)
 
@@ -69,27 +69,22 @@ $(NAME): $(OBJS)
 %.o: %.c $(INCLUDES)
 	cc $(CFLAGS) -c $< -o $@
 
-bonus: $(BONUSNAME)
+bonus: $(BONUS_DIR)/$(BONUSNAME)
 
-$(BONUSNAME) : | $(BONUS_DIR) $(BONUS_OBJ)
-	ar rcs $(BONUSNAME) $(BONUS_OBJ)
+$(BONUS_DIR)/$(BONUSNAME) : $(BONUS_OBJ)
+	ar rcs $(BONUS_DIR)/$(BONUSNAME) $(BONUS_OBJ)
 
-$(BONUS_DIR):
-	mkdir -p $(BONUS_DIR)
-bonus/%.o: bonus/%.c $(BONUS_INC)
+$(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c $(BONUS_INC)
 	cc $(CFLAGS) -c $< -o $@
 
 test: $(NAME)
 	cc $(CFLAGS) pruebas.c -L. -lft -o pruebas
 
-testbo: $(BONUSNAME)
-	cc $(CFLAGS) pruebasbo.c -L. -lft_bonus -o pruebasbo
-
 clean:
-	rm -f *.o bonus/*.o
+	rm -f *.o $(BONUS_DIR)/*.o
 
 fclean: clean
-	rm -f $(NAME) $(BONUSNAME)
+	rm -f $(NAME) $(BONUS_DIR)/$(BONUSNAME)
 
 re: fclean all
 
