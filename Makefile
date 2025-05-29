@@ -52,7 +52,7 @@ SRCS = \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew))
+BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew, ft_lstadd_front))
 
 OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)

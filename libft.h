@@ -61,6 +61,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 
 // BONUS FUNCTIONS
 t_list  *ft_lstnew_bonus(void *content);
-
+void    ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
