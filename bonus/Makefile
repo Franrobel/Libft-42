@@ -3,6 +3,9 @@
 bonus:
 	make -C .. bonus
 
+test:
+	make -C .. test
+
 fclean:
 	make -C .. fclean
 

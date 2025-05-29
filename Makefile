@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME = libft.a
-BONUSNAME = libft_bonus.a
 
 BONUS_DIR = bonus
 
@@ -59,7 +58,6 @@ OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 
 INCLUDES = libft.h
-BONUS_INC = $(BONUS_DIR)/libft_bonus.h
 
 all: $(NAME)
 
@@ -69,12 +67,10 @@ $(NAME): $(OBJS)
 %.o: %.c $(INCLUDES)
 	cc $(CFLAGS) -c $< -o $@
 
-bonus: $(BONUS_DIR)/$(BONUSNAME)
+bonus: $(BONUS_OBJ)
+	ar rcs $(NAME) $(BONUS_OBJ)
 
-$(BONUS_DIR)/$(BONUSNAME) : $(BONUS_OBJ)
-	ar rcs $(BONUS_DIR)/$(BONUSNAME) $(BONUS_OBJ)
-
-$(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c $(BONUS_INC)
+$(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c
 	cc $(CFLAGS) -c $< -o $@
 
 test: $(NAME)
@@ -84,7 +80,7 @@ clean:
 	rm -f *.o $(BONUS_DIR)/*.o
 
 fclean: clean
-	rm -f $(NAME) $(BONUS_DIR)/$(BONUSNAME)
+	rm -f $(NAME)
 
 re: fclean all
 
