@@ -52,7 +52,12 @@ SRCS = \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-BONUS_SRC = $(addprefix bonus/, $(addsuffix _bonus.c, ft_lstnew, ft_lstadd_front))
+BONUS_SRC = \
+	$(BONUS_DIR)/ft_lstnew_bonus.c \
+	$(BONUS_DIR)/ft_lstadd_front_bonus.c \
+	$(BONUS_DIR)/ft_lstsize_bonus.c \
+	$(BONUS_DIR)/ft_lstlast_bonus.c \
+	$(BONUS_DIR)/ft_lstadd_back_bonus.c
 
 OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)

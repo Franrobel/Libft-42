@@ -364,7 +364,7 @@ printf("\n=========== FT_PUTNBR_FD ============\n");
 
 ft_putnbr_fd(1235, 1);
 */
-t_list *nombre = ft_lstnew_bonus("pepe");
+t_list *nombre = ft_lstnew("pepe");
 
 printf("content en newel es %s\n", (char *)nombre->content);
     return (0);
