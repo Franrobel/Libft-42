@@ -57,7 +57,11 @@ BONUS_SRC = \
 	$(BONUS_DIR)/ft_lstadd_front_bonus.c \
 	$(BONUS_DIR)/ft_lstsize_bonus.c \
 	$(BONUS_DIR)/ft_lstlast_bonus.c \
-	$(BONUS_DIR)/ft_lstadd_back_bonus.c
+	$(BONUS_DIR)/ft_lstadd_back_bonus.c \
+	$(BONUS_DIR)/ft_lstdelone_bonus.c \
+	$(BONUS_DIR)/ft_lstclear_bonus.c \
+	$(BONUS_DIR)/ft_lstiter_bonus.c \
+	$(BONUS_DIR)/ft_lstmap_bonus.c
 
 OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
