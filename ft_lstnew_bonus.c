@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
@@ -23,3 +23,13 @@ t_list	*ft_lstnew(void *content)
 	newel->next = NULL;
 	return (newel);
 }
+/*
+int	main(void)
+{
+	char	*content = "huevo";
+	t_list *origin = ft_lstnew(content);
+	
+	printf("lstnew->content \"%s\"\n", (char *)origin->content);
+	return (0);
+}
+*/

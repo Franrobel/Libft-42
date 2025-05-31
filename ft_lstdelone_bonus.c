@@ -1,22 +1,16 @@
-#include "../libft.h"
+#include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*temp;
-
-	temp = lst;
-	if (!lst)
+	if (!lst || !del)
 		return ;
-	while (temp)
-	{
-		f(temp->content);
-		temp = temp->next;
-	}
+	del(lst->content);
+	free(lst);
 }
 /*
-void f(void *content)
+void del(void *content)
 {
-    printf("content en f \"%s\" y mas \n", (char *)content);
+    free(content);
 }
 int main(void)
 {
@@ -28,7 +22,7 @@ int main(void)
     nodo2->next = nodo3;
     nodo3->next = NULL;
     t_list **list = &nodo1;
-    ft_lstiter(*list, f);
+    ft_lstdelone(*list, del);
     return (0);
 }
 */

@@ -12,8 +12,6 @@
 
 NAME = libft.a
 
-BONUS_DIR = bonus
-
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = \
@@ -50,21 +48,21 @@ SRCS = \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c 
 
-BONUS_SRC = \
-	$(BONUS_DIR)/ft_lstnew_bonus.c \
-	$(BONUS_DIR)/ft_lstadd_front_bonus.c \
-	$(BONUS_DIR)/ft_lstsize_bonus.c \
-	$(BONUS_DIR)/ft_lstlast_bonus.c \
-	$(BONUS_DIR)/ft_lstadd_back_bonus.c \
-	$(BONUS_DIR)/ft_lstdelone_bonus.c \
-	$(BONUS_DIR)/ft_lstclear_bonus.c \
-	$(BONUS_DIR)/ft_lstiter_bonus.c \
-	$(BONUS_DIR)/ft_lstmap_bonus.c
+BONUS_SRCS = \
+	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c
 
 OBJS = $(SRCS:%.c=%.o)
-BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
+BONUS_OBJ = $(BONUS_SRCS:%.c=%.o)
 
 INCLUDES = libft.h
 
@@ -76,23 +74,18 @@ $(NAME): $(OBJS)
 %.o: %.c $(INCLUDES)
 	cc $(CFLAGS) -c $< -o $@
 
-bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
+bonus: $(OBJS) $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJ)
 
-$(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c
+%_bonus.o: %_bonus.c $(INCLUDES)
 	cc $(CFLAGS) -c $< -o $@
 
-test: $(NAME)
-	cc $(CFLAGS) pruebas.c -L. -lft -o pruebas
-
 clean:
-	rm -f *.o $(BONUS_DIR)/*.o
+	rm -f $(OBJS) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-re_bonus: fclean bonus
-
-.PHONY: all bonus clean fclean re re_bonus
+.PHONY: all bonus clean fclean re 

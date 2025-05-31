@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francisr <francisr@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 14:18:09 by francisr          #+#    #+#             */
-/*   Updated: 2025/05/30 14:19:54 by francisr         ###   ########.fr       */
+/*   Created: 2025/05/30 14:57:36 by francisr          #+#    #+#             */
+/*   Updated: 2025/05/30 15:01:29 by francisr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*tmp;
-	int		lenght;
 
-	lenght = 0;
 	tmp = lst;
-	while (tmp)
-	{
-		lenght++;
+	if (!lst)
+		return (NULL);
+	while (tmp->next)
 		tmp = tmp->next;
-	}
-	return (lenght);
+	return (tmp);
 }
 /*
 int	main(void)
@@ -33,11 +30,13 @@ int	main(void)
 	t_list	*nueva = malloc(sizeof(t_list));
 	t_list	*otra = malloc(sizeof(t_list));
 	t_list	*mas = malloc(sizeof(t_list));
+	t_list	*tra = malloc(sizeof(t_list));
 
 	ft_lstadd_front(&origin, nueva);
 	ft_lstadd_front(&origin, otra);
 	ft_lstadd_front(&origin, mas);
-	ft_lstsize(origin);
+	ft_lstadd_front(&origin, tra);
+	ft_lstlast(origin);
 	return (0);
 }
 */

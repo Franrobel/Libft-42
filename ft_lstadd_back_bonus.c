@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -28,16 +28,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last->next = new;
 }
 /*
-
-Parámetros 
-lst: el puntero al primer nodo de una lista.
-new: el puntero a un nodo que añadir a la lista.
-
-Valor devuelto Nada
-Funciones autorizadas
-Ninguna
-Descripción Añade el nodo ’new’ al final de la lista ’lst’.
-
 int	main(void)
 {
 	t_list	*origin = ft_lstnew("va uno mas");
