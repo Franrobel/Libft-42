@@ -62,7 +62,7 @@ BONUS_SRCS = \
 	ft_lstmap_bonus.c
 
 OBJS = $(SRCS:%.c=%.o)
-BONUS_OBJ = $(BONUS_SRCS:%.c=%.o)
+BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 
 INCLUDES = libft.h
 
@@ -74,14 +74,11 @@ $(NAME): $(OBJS)
 %.o: %.c $(INCLUDES)
 	cc $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS) $(BONUS_OBJ)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJ)
-
-%_bonus.o: %_bonus.c $(INCLUDES)
-	cc $(CFLAGS) -c $< -o $@
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJ)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)

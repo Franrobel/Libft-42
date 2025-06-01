@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: francisr <francisr@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/01 11:53:15 by francisr          #+#    #+#             */
+/*   Updated: 2025/06/01 11:53:22 by francisr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
@@ -16,7 +28,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 /*
 void f(void *content)
 {
-    printf("content en f \"%s\" y mas \n", (char *)content);
+    printf("content en f \"%s\"\n", (char *)content);
 }
 int main(void)
 {

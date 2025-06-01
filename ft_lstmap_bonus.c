@@ -1,18 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: francisr <francisr@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/01 11:52:29 by francisr          #+#    #+#             */
+/*   Updated: 2025/06/01 11:52:34 by francisr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include <stdio.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newnod;
 	t_list	*newlst;
+	void	*contfunc;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	newlst = NULL;
 	while (lst)
 	{
-		newnod = ft_lstnew(f(lst->content));
+		contfunc = f(lst->content);
+		newnod = ft_lstnew(contfunc);
 		if (!newnod)
 		{
+			del(contfunc);
 			ft_lstclear(&newlst, del);
 			return (NULL);
 		}
@@ -22,24 +38,36 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (newlst);
 }
 /*
-Parámetros 
-lst: un puntero a un nodo.
-f: la dirección de un puntero a una función usada en la iteración 
-de cada elemento de la lista.
-del: un puntero a función utilizado para eliminar el contenido 
-de un nodo, si es necesario.
+void *func(void *content)
+{
+	return (ft_strdup((char *)content));
+}
 
-Valor devuelto La nueva lista.
-NULL si falla la reserva de memoria.
+void del(void *content)
+{
+    free(content);
+}
 
-Funciones autorizadas
-malloc, free
+int	main(void)
+{
+	t_list *string1 = ft_lstnew(ft_strdup("uno"));
+	t_list *string2 = ft_lstnew(ft_strdup("dos"));
+	t_list *string3 = ft_lstnew(ft_strdup("tres"));
+	string1->next = string2;
+	string2->next = string3;
+	
+	//ft_lstadd_back(&string1, string2);
+	//ft_lstadd_back(&string1, string3);
 
-Descripción Itera la lista ’lst’ 
-y aplica la función ’f’ al contenido de cada nodo. 
-Crea una lista resultante de la aplicación correcta 
-y sucesiva de la función ’f’ sobre cada nodo. 
-La función ’del’ se utiliza
-para eliminar el contenido de un nodo, si hace
-falta.
+	t_list *newlst = ft_lstmap(string1, func, del);
+	
+	t_list *temp = newlst;
+	while (temp)
+	{
+		printf("list after map: \"%s\"\n", (char *)temp->content);
+		temp = temp->next;
+	}
+	ft_lstclear(&string1, del);
+	ft_lstclear(&newlst, del);
+}
 */
