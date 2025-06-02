@@ -52,7 +52,7 @@ static int	getsubstr(char **arr, const char *s, char c, size_t *i)
 		(*i)++;
 	len = *i - start;
 	arr[0] = ft_substr(s, start, len);
-	return (arr[0] != NULL);
+	return (arr[0] == NULL);
 }
 
 static char	**fillarr(char **array, const char *s, char c)
@@ -66,7 +66,7 @@ static char	**fillarr(char **array, const char *s, char c)
 	{
 		if (s[i] != c)
 		{
-			if (!getsubstr(&array[idx], s, c, &i))
+			if (getsubstr(&array[idx], s, c, &i))
 			{
 				freearr(array, idx);
 				return (NULL);
